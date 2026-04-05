@@ -67,7 +67,7 @@ Below is the planned support matrix for upcoming model families:
 | Model Family | SFT Support | RL (GRPO) Support |
 | :--- | :---: | :---: |
 | **Qwen** (3.5 / 3) | ✅ Released | ✅ Planned |
-| **Llama** (3.1 / 3.2 / 3.3) | ✅ Planned | ✅ Planned |
+| **Llama** (3.1 / 3.2 / 3.3) | ✅ Planned | ✅ Planned 
 | **Phi-4** | ✅ Planned | ✅ Planned |
 | **Gemma 4** | ✅ Planned | ✅ Planned |
 | **DeepSeek** | ✅ Planned | ✅ Planned |
@@ -84,7 +84,7 @@ Below are the Colab notebooks, organized by model architecture. You can run the 
 
 | 🤖 Model Architecture | 🛠️ Pipeline | 🚀 Quick Setup (1-Click Run) |
 | :--- | :--- | :---: |
-| **Qwopus3.5 (27B)** | SFT / LoRA | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Jackrong/Jackrong-llm-finetuning-guide/blob/main/train_code/Qwopus3-5-27b-Colab.ipynb) |
+| **Qwopus3.5 (27B)** | SFT / LoRA | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/R6410418/Jackrong-llm-finetuning-guide/blob/main/train_code/Qwopus3-5-27b-Colab.ipynb) |
 
 ---
 
