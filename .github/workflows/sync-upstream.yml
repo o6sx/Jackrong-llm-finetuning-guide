@@ -2,8 +2,8 @@ name: Sync with Upstream
 
 on:
   schedule:
-    - cron: '0 2 * * *'      # 每天北京时间早上 10 点自动运行（可自行调整）
-  workflow_dispatch:         # 允许你手动点击运行
+    - cron: '0 2 * * *'      # 每天北京时间早上 10 点自动运行
+  workflow_dispatch:         # 允许手动触发
 
 jobs:
   sync:
@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
 
       - name: Sync upstream changes
-        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.3   # ← 这里改成最新版
+        uses: aormsby/Fork-Sync-With-Upstream-action@main   # 使用 @main 最稳定
         with:
           upstream_repository: R6410418/Jackrong-llm-finetuning-guide
           upstream_branch: main
