@@ -16,9 +16,9 @@ jobs:
           fetch-depth: 0
 
       - name: Sync upstream changes
-        uses: aormsby/Fork-Sync-With-Upstream-action@main   # 使用 @main 最稳定
+        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.3
         with:
-          upstream_repository: R6410418/Jackrong-llm-finetuning-guide
-          upstream_branch: main
-          target_branch: main
+          upstream_sync_repo: R6410418/Jackrong-llm-finetuning-guide   # ← 上游仓库
+          upstream_sync_branch: main                                  # ← 上游分支
+          target_sync_branch: main                                    # ← 你的目标分支
           target_repo_token: ${{ secrets.GITHUB_TOKEN }}
