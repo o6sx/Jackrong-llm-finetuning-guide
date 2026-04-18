@@ -1,0 +1,21 @@
+name: Sync Fork with Upstream
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 每天 UTC 0点（北京时间早上8点）自动运行
+  workflow_dispatch:      # 允许你手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sync upstream changes
+        uses: dabreadman/sync-upstream-repo@v1.0.0.b   # 或者其他类似 action
+        with:
+          upstream_repo: "https://github.com/R6410418/Jackrong-llm-finetuning-guide.git"
+          upstream_branch: "main"   # 原仓库默认分支，通常是 main
+          target_branch: "main"     # 你的 Fork 要更新的分支
