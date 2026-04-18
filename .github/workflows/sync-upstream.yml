@@ -2,8 +2,8 @@ name: Sync with Upstream
 
 on:
   schedule:
-    - cron: '0 2 * * *'      # 每天北京时间早上 10 点自动运行（UTC 2点）
-  workflow_dispatch:         # 允许你手动触发
+    - cron: '0 2 * * *'      # 每天北京时间早上 10 点自动运行
+  workflow_dispatch:         # 允许手动触发
 
 jobs:
   sync:
