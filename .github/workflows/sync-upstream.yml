@@ -1,21 +1,27 @@
-name: Sync Fork with Upstream
+name: Sync with Upstream
 
 on:
   schedule:
-    - cron: '0 0 * * *'   # 每天 UTC 0点（北京时间早上8点）自动运行
-  workflow_dispatch:      # 允许你手动触发
+    - cron: '0 2 * * *'        # 每天北京时间早上10点自动运行（UTC 2点）
+  workflow_dispatch:           # 允许你手动点击运行
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout your repo
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Sync upstream changes
-        uses: dabreadman/sync-upstream-repo@v1.0.0.b   # 或者其他类似 action
+      - name: Sync upstream
+        uses: aormsby/fork-sync-with-upstream-action@v1.2.0
         with:
-          upstream_repo: "https://github.com/R6410418/Jackrong-llm-finetuning-guide.git"
-          upstream_branch: "main"   # 原仓库默认分支，通常是 main
-          target_branch: "main"     # 你的 Fork 要更新的分支
+          upstream_repository: R6410418/Jackrong-llm-finetuning-guide
+          upstream_branch: main
+          target_branch: main
+          target_repo_token: ${{ secrets.GITHUB_TOKEN }}
+          # 可选：如果经常有冲突，可以改成只创建 Pull Request 而不是直接合并
+          # pull_request_title: "Auto sync from upstream"
+          # pull_request_body: "Automatic sync from upstream repository"
