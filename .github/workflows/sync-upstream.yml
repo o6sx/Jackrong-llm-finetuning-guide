@@ -2,26 +2,23 @@ name: Sync with Upstream
 
 on:
   schedule:
-    - cron: '0 2 * * *'        # 每天北京时间早上10点自动运行（UTC 2点）
-  workflow_dispatch:           # 允许你手动点击运行
+    - cron: '0 2 * * *'      # 每天北京时间早上 10 点自动运行（UTC 2点）
+  workflow_dispatch:         # 允许你手动触发
 
 jobs:
   sync:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout your repo
+      - name: Checkout your repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Sync upstream
+      - name: Sync upstream changes
         uses: aormsby/fork-sync-with-upstream-action@v1.2.0
         with:
           upstream_repository: R6410418/Jackrong-llm-finetuning-guide
           upstream_branch: main
           target_branch: main
           target_repo_token: ${{ secrets.GITHUB_TOKEN }}
-          # 可选：如果经常有冲突，可以改成只创建 Pull Request 而不是直接合并
-          # pull_request_title: "Auto sync from upstream"
-          # pull_request_body: "Automatic sync from upstream repository"
